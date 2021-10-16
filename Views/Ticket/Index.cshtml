@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<h2 style="padding-left:15px;">Tickets</h2>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#firstTab">View All</a></li>
+    <li class=""><a data-toggle="tab" href="#secondTab">Add new</a></li>
+
+</ul>
+<div class="tab-content">
+    <div id="firstTab" class="tab-pane fade in active">@Html.Action("ViewAll")</div>
+    <div id="secondTab" class="tab-pane fade in  ">@Html.Action("AddOrEdit")</div>
+</div>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/r-2.2.9/datatables.min.css" />
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.2/r-2.2.9/datatables.min.js"></script>
+
+    <script>
+        $('#ticketTable').DataTable({
+            responsive: true
+        });
+        function activatejQueryTable() {
+            $("#ticketTable").DataTable();
+        }
+        $(function () {
+            activatejQueryTable();
+        });
+    </script>
+}

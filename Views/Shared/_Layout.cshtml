@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="~/Content/Dashboard/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/b1df0cbe25.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
+</head>
+<body class="sb-nav-fixed" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; font-size:16px;">
+
+    <nav class="sb-topnav navbar navbar-expand  bg-dark rounded-0">
+        <a class="navbar-brand ps-3" style="color:darkgreen" href="@Url.Action("Index","Dashboard")"><i class="fab fa-envira"></i> Trackerz <i class="fab fa-envira"></i></a>
+        <!-- Sidebar Toggle-->
+        <button style="color:darkgreen" class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0 .d-print-inline-block">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button style="color:darkgreen" class="btn btn-outline-secondary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </form>
+
+
+
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Main</div>
+                        <a class="nav-link" href="@Url.Action("Index","Dashboard")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Admin</div>
+                        <a class="nav-link collapsed" href="@Url.Action("Index","Role")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            User Roles
+                        </a>
+
+
+                        <a class="nav-link collapsed" href="@Url.Action("Index","Project")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
+                            User Projects
+                            <!--<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> </-->
+                        </a>
+
+                        <div class="sb-sidenav-menu-heading">Tracker</div>
+
+                        <a class="nav-link" href="@Url.Action("Index","Ticket")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            My Tickets
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    @HttpContext.Current.Session["Username"].ToString()
+                    <br />
+                    <br />
+
+                    <a style="color: red; justify-content: center; text-align: center; border: 1px solid red; padding: 5px 80px 5px 80px; background-color:indianred" href="@Url.Action("Logout","Login")">Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                @RenderBody()
+            </main>
+
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy;  @DateTime.Now.Year - Trackerz</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+
+    <script src="~/Content/Dashboard/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="~/Content/Dashboard/assets/demo/chart-area-demo.js"></script>
+    <script src="~/Content/Dashboard/assets/demo/chart-bar-demo.js"></script>
+    <script src="~/Content/Dashboard/assets/demo/chart-pie-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="~/Content/Dashboard/js/datatables-simple-demo.js"></script>
+
+    <script src="~/Scripts/Scripts.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/notify.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+</body>
+</html>

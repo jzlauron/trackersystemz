@@ -1,0 +1,148 @@
+﻿@model TrackerSystem.Models.User
+
+@{
+    ViewBag.Title = "AddOrEdit";
+    Layout = null;
+}
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/Content/Login.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 2px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="main-bg">
+    <div class="login-container text-c">
+        <div>
+            <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+        </div>
+        <h3 style="color:chocolate">Trackerz</h3>
+        <p class="text-whitesmoke">Register</p>
+        <div class="container-content">
+            @using (Html.BeginForm("AddOrEdit","Login",FormMethod.Post))
+            {
+                
+                @Html.AntiForgeryToken()
+                <table>
+                    <tr>
+                        <td></td>
+                        <td style="width:100%">
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(model => model.Username) } })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Username)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="width:100%">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(model => model.Password) } })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td style="width:100%">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(model => model.ConfirmPassword) } })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.ConfirmPassword)</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td style="width:100%">
+                            @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(model => model.Fullname) } })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Fullname)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="width:100%">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(model => model.Email) } })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="width:100%">
+                            @Html.DropDownListFor(model => model.Roles, new List<SelectListItem> {
+                                    new SelectListItem{Text = "Admin", Value="Admin"},
+                                    new SelectListItem{Text = "Project Manager", Value="Project Manager"},
+                                    new SelectListItem{Text = "Developer", Value="Developer"},
+                                    new SelectListItem{Text = "Tester", Value="Tester"},
+                                }, "Pick role...", new { @class = "form-control", id = "ddlRoles" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Roles)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="submit" class="form-button button-l margin-b" name="name" value="Create" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <label class="label-success bg-light">@ViewBag.SuccessMessage</label>
+                        </td>
+                    </tr>
+                </table>
+            }
+            <div>
+                @Html.ActionLink("Back to Login", "Index")
+            </div>
+            <p class="margin-t text-whitesmoke" style="color:chocolate"><small> TrackerzApp &copy; 2021</small> </p>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
