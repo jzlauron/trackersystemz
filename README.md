@@ -15,6 +15,9 @@ It is an example of an issue tracker app which the computer testers/programmers 
 <li>-Authentication and Authorization using JQuery</li>
 <li>-Model, Controller, Views</li>
 </ul>
+
+
+
 **Website Look:**
 Login Page:
 Login as - username: 'admin'
