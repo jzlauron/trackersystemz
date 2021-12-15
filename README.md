@@ -7,14 +7,14 @@ It is an example of an issue tracker app which the computer testers/programmers 
 -Building a MVC Architectural Pattern, .NET Web App, Enhance C# .Net and to possibly add idea to upgrade issue tracker apps for ticket admins
 
 **Most specifically, I used the following: **
-
--SQL Server Express
--Entity Framework
--CRUD (Create, Read, Update, Delete)
--Bootstrap UI 
--Authentication and Authorization using JQuery 
--Model, Controller, Views
-
+<ul>
+<li>-SQL Server Express</li>
+<li>-Entity Framework</li>
+<li>-CRUD (Create, Read, Update, Delete)</li>
+<li>-Bootstrap UI</li>
+<li>-Authentication and Authorization using JQuery</li>
+<li>-Model, Controller, Views</li>
+</ul>
 **Website Look:**
 Login Page:
 Login as - username: 'admin'
