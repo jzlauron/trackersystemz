@@ -4,7 +4,10 @@ It is an example of an issue tracker app which the computer testers/programmers 
 
 **The purpose of this project is to learn: **
 
--Building a MVC Architectural Pattern, .NET Web App, Enhance C# .Net and to possibly add idea to upgrade issue tracker apps for ticket admins
+-Building a MVC Architectural Pattern<br />
+-.NET WEB APP<br />
+-Practice C# .NET<br />
+-Possibly add an upgrade to issue tracking apps that is out there 
 
 **Most specifically, I used the following: **
 <ul>
